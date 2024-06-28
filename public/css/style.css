@@ -9772,7 +9772,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-  color: #FF6600;
+  color: #8b0d32;
 }
 
 @media (max-width: 991.98px) {
@@ -9817,7 +9817,7 @@ h6,
 }
 
 .carousel-indicators .active {
-  background: #FF6600;
+  background: #8b0d32;
 }
 
 @media (max-width: 991.98px) {
