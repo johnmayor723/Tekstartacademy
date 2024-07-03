@@ -40,6 +40,10 @@ app.get('/devops', (req, res)=>{
    res.render('devops') 
 })
 
+app.get('/blog', (req, res)=>{
+   res.render('blog') 
+})
+
 
 app.listen(port, ()=>{
     console.log(`server started listening on ${port}`)
