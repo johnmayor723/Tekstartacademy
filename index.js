@@ -40,8 +40,9 @@ app.get('/devops', (req, res)=>{
    res.render('devops') 
 })
 
-app.get('/blog', (req, res)=>{
-   res.render('blog') 
+
+app.get('/data', (req, res)=>{
+   res.render('data') 
 })
 
 
