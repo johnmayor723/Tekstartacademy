@@ -13,6 +13,7 @@ let DBURL = process.env.DB_URL
 //app configurations
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
+app.use(express.urlencoded())
 //setting session parameters
 app.use(session({
    secret: 'mysupersecret',
@@ -21,15 +22,12 @@ app.use(session({
    store: MongoStore.create({ mongoUrl: DBURL })
  }));
 app.use(flash());
-// Middleware to make session available to all templates
-app.use(function(req, res, next){
-   res.locals.session = req.session
-   next()
- })
-// Middleware to make flash messages available to all templates
+// Middleware to make session  and flash messages available to all templates
+
 app.use((req, res, next) => {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
+   res.locals.session = req.session
+  res.locals.success = req.flash('success');
+  res.locals.error = req.flash('error');
   next();
 });
 
@@ -88,10 +86,28 @@ app.get('/frontendbeginner', function(req, res){
 })
 
 // coure enrollement 
- app.post('/enroll', ()=>{
-   let data = req.body
-   Enrolled.create(data)
-   .then()
+ app.post('/enroll', (req, res)=>{
+   
+   const name = req.body.name;
+   const email = req.body.email;
+   const course = req.body.course;
+   let enrolledUser = {name, email, course}
+   console.log(enrolledUser)
+  // Logging the form data
+  
+  Enrolled.create(enrolledUser)
+  .then(data=>{
+   //req.flash("success", "Welcome to YelpCamp " + user.username);
+   req.flash('success', 'Successfully enrolled!');
+   res.redirect("/enroll")
+  })
+  .catch(error=>{
+   if (!name || !email || !course) {
+      req.flash('error', 'All fields are required.');
+      return res.redirect('/enroll');
+    }
+  })
+   
  })
 
 app.listen(port, ()=>{

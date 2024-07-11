@@ -12,7 +12,7 @@ mongoose.connect(URL, {
 
 // Setting up the schema
 const Enrolled = new mongoose.Schema({
-  fullname: String,
+  name: String,
   email:String,
   course: String
 });

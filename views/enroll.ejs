@@ -34,6 +34,24 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .alert-success {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+        .alert-danger {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+    </style>
 </head>
 
 <body>
@@ -150,20 +168,7 @@
     <!-- Navbar End -->
 
 
-    <!-- Header Start -->
-    <div class="container-fluid page-header" style="margin-bottom: 90px;">
-        <div class="container">
-            <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
-                <h3 class="display-4 text-white text-uppercase">Enroll For One of Our Programs</h3>
-                <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header End -->
+   
 
 
     <!-- Blog Start -->
@@ -172,22 +177,33 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row pb-3">
-                        <h3 class="text-primary mb-3">Start A Training Course Now</h3> 
+                        <h3 class="text-primary mb-3"></h3> 
                        
-                        <div style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 100%; max-width: 500px; height: 100%; max-height: 600px; display: flex; flex-direction: column; justify-content: center;">
-                            <h2 style="margin-top: 0; text-align: center;">Enroll Now</h2>
-                            <form action="/enroll" method="POST" style="display: flex; flex-direction: column; flex-grow: 1;">
+                        <div style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 100%;  height: 100%; max-height: 600px; display: flex; flex-direction: column; justify-content: center;">
+                            <h2 style="margin-top: 0; text-align: center;color: #8b0d32;">Enroll For a course Now</h2>
+                            <% if(error && error.length > 0){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= error %>
+                                </div>
+                            <% } %>
+                            <% if(success && success.length > 0){ %>
+                                <div class="alert alert-success" role="alert">
+                                    <%= success %>
+                                </div>
+                            <% } %>
+                                    
+                                                        <form action="/enroll" method="POST" style="display: flex; flex-direction: column; flex-grow: 1;">
                                 <div style="margin-bottom: 15px; flex-grow: 1;">
                                     <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
-                                    <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid burgundy; border-radius: 5px; box-sizing: border-box;">
+                                    <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid  #8b0d32; border-radius: 5px; box-sizing: border-box;">
                                 </div>
                                 <div style="margin-bottom: 15px; flex-grow: 1;">
                                     <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
-                                    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid burgundy; border-radius: 5px; box-sizing: border-box;">
+                                    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid b #8b0d32; border-radius: 5px; box-sizing: border-box;">
                                 </div>
                                 <div style="margin-bottom: 15px; flex-grow: 1;">
                                     <label for="course" style="display: block; margin-bottom: 5px;">Course:</label>
-                                    <select id="course" name="course" required style="width: 100%; padding: 10px; border: 1px solid burgundy; border-radius: 5px; box-sizing: border-box;">
+                                    <select id="course" name="course" required style="width: 100%; padding: 10px; border: 1px solid  #8b0d32; border-radius: 5px; box-sizing: border-box;">
                                         <option value="web">Fullstack Web Development</option>
                                         <option value="cyber">Cyber Security</option>
                                         <option value="app">Apps Development (React Native)</option>
@@ -195,7 +211,7 @@
                                         <option value="data">Data Science</option>
                                     </select>
                                 </div>
-                                <button type="submit" style="width: 100%; padding: 10px; background-color: burgundy; color: #fff; border: none; border-radius: 5px; cursor: pointer; flex-grow: 0;">Enroll</button>
+                                <button type="submit" style="width: 100%; padding: 10px; background-color:  #8b0d32; color: #fff; border: none; border-radius: 5px; cursor: pointer; flex-grow: 0;">Enroll</button>
                             </form>
                         </div>
                         
