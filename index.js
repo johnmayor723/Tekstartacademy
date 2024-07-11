@@ -1,12 +1,37 @@
 const express = require('express')
+require('dotenv').config()
 const app = express()
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const ejs = require('ejs')
+const flash = require('connect-flash')
+
+const Enrolled = require('./models/enrolled')
 
 const port = process.env.port || 3000
-
+let DBURL = process.env.DB_URL
 //app configurations
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
+//setting session parameters
+app.use(session({
+   secret: 'mysupersecret',
+   resave: false,
+   saveUninitialized: false,
+   store: MongoStore.create({ mongoUrl: DBURL })
+ }));
+app.use(flash());
+// Middleware to make session available to all templates
+app.use(function(req, res, next){
+   res.locals.session = req.session
+   next()
+ })
+// Middleware to make flash messages available to all templates
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  next();
+});
 
 // main routes
 app.get('/', (req, res)=>{
@@ -21,13 +46,17 @@ app.get('/about', (req, res)=>{
     res.render('contact') 
  })
  
- app.get('/courses', (req, res)=>{
+ app.get('/course', (req, res)=>{
     res.render('course') 
  })
 
+ app.get('/enroll', (req, res)=>{
+   res.render('enroll') 
+})
+
  //courses categories routes
 
- app.get('/apps', (req, res)=>{
+app.get('/apps', (req, res)=>{
    res.render('apps') 
 })
 app.get('/uiux', (req, res)=>{
@@ -40,11 +69,30 @@ app.get('/devops', (req, res)=>{
    res.render('devops') 
 })
 
-
 app.get('/data', (req, res)=>{
    res.render('data') 
 })
 
+// Individual Courses Route
+
+app.get('/datascience', function(req, res){
+   res.render('datascience')
+})
+
+app.get('/frontendbeginner', function(req, res){
+   res.render('frontendbeginer')
+})
+
+app.get('/frontendbeginner', function(req, res){
+   res.render('frontendbeginer')
+})
+
+// coure enrollement 
+ app.post('/enroll', ()=>{
+   let data = req.body
+   Enrolled.create(data)
+   .then()
+ })
 
 app.listen(port, ()=>{
     console.log(`server started listening on ${port}`)
