@@ -426,29 +426,28 @@
                 <div class="col-lg-5">
                     <div class="card border-0">
                         <div class="card-header bg-light text-center p-4">
-                            <h1 class="m-0">Sign Up Now</h1>
+                            <h1 class="m-0">Enroll For A Course Now</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-primary p-5">
                             <form action='/enroll' method='post'>
                                 <div class="form-group">
-                                    <input type="text" class="form-control border-0 p-4" placeholder="Your name" required="required" />
+                                    <input type="text" class="form-control border-0 p-4" name='name' placeholder="Your name" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control border-0 p-4" placeholder="Your email" required="required" />
+                                    <input type="email" class="form-control border-0 p-4" name='email' placeholder="Your email" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <select class="custom-select border-0 px-4" style="height: 47px;">
+                                    <select class="custom-select border-0 px-4" name='course' style="height: 47px;">
                                         <option selected>Select a course</option>
-                                        <option value="1">Front development- beginner</option>
-                                        <option value="2">front development- Advanced</option>
-                                        <option value="3">Fullstack development- beginner</option>
-                                        <option value="1">Fullstack development- Advanced</option>
-                                        <option value="2">Data science</option>
-                                        <option value="3">DevOps</option>
+                                        <option value="web development">Fullstack Web Development</option>
+                                        <option value="cyber security">Cyber Security</option>
+                                        <option value="mobile app development">Apps Development (React Native)</option>
+                                        <option value="devops">DevOps</option>
+                                        <option value="data science">Data Science</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign Up Now</button>
+                                    <button class="btn btn-dark btn-block border-0 py-3" type="submit">Enroll now</button>
                                 </div>
                             </form>
                         </div>
