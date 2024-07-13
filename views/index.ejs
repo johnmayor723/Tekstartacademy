@@ -76,7 +76,16 @@
     </div>
     <!-- Topbar End -->
 
-
+    <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+    <% } %>
+    <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+    <% } %>
     <!-- Navbar Start -->
     <div class="container-fluid">
         <div class="row border-top px-xl-5">
@@ -162,6 +171,7 @@
                     <img class="position-relative w-100" src="img/hero.avif" style="min-height: 300px; object-fit: cover;">
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
+                            
                             <h5 class="text-white text-uppercase mb-md-3">TECKSTART ACADEMY</h5>
                             <h1 class="display-3 text-white mb-md-4">Kickstart Your Tech Career</h1>
                             <a href="/courses" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
@@ -193,7 +203,7 @@
     </div>
     <!-- Carousel End -->
 
-
+    
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -269,7 +279,7 @@
     <div class="container py-5">
         <div class="text-center mb-5">
             <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Courses</h5>
-            <h1>TOp Popular Courses</h1>
+            <h1>Top Popular Courses</h1>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
@@ -429,7 +439,7 @@
                             <h1 class="m-0">Enroll For A Course Now</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-primary p-5">
-                            <form action='/enroll' method='post'>
+                            <form action='/enroll1' method='post'>
                                 <div class="form-group">
                                     <input type="text" class="form-control border-0 p-4" name='name' placeholder="Your name" required="required" />
                                 </div>
