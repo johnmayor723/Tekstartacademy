@@ -41,7 +41,7 @@
     <div class="container-fluid d-none d-lg-block">
         <div class="row align-items-center py-4 px-xl-5">
             <div class="col-lg-3">
-                <a href="/" class="text-decoration-none">
+                <a href="" class="text-decoration-none">
                     <img height="80px" src="/img/my_logo.png" alt="">
                 </a>
             </div>
@@ -59,7 +59,7 @@
                     <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
-                        <small>info@teckstartacademy.com</small>
+                        <small>info@teckstartacademy.com.ng</small>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,16 @@
     </div>
     <!-- Topbar End -->
 
-
+    <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+    <% } %>
+    <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+    <% } %>
     <!-- Navbar Start -->
     <div class="container-fluid">
         <div class="row border-top px-xl-5">
@@ -108,10 +117,10 @@
                             <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <a href="" class="dropdown-item">Android Apps</a>
                                 <a href="" class="dropdown-item">IOS Apps</a>
-                                <a href="" class="dropdown-item">Cross Plartform Apps</a>
+                                <a href="apps" class="dropdown-item">Cross Plartform Apps</a>
                             </div>
                         </div>
-                        <a href="" class="nav-item nav-link">DevOps</a>
+                        <a href="/devops" class="nav-item nav-link">DevOps</a>
                         <a href="" class="nav-item nav-link">UI/UX</a>
                     </div>
                 </nav>
@@ -139,14 +148,15 @@
                                 </div>
                             </div>
                             <a href="/contact" class="nav-item nav-link">Contact</a>
+                            <a href="/contact" class="  btn btn-primary " style="height:38px;margin-top:15px">Enroll Now</a>
+
                         </div>
-                        <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="">Join Now</a>
+          <!--- <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="/enroll">Enroll Now</a> -->
                     </div>
                 </nav>
             </div>
         </div>
     </div>
-    <!-- Navbar End -->
     <!-- Navbar End -->
 
 
